@@ -1,7 +1,5 @@
 # Random Quote Generator - **CCS3351 Mobile Application Development** Final Project 📱💭
 
-![Quote Icon](https://img.icons8.com/ios/452/quote-left.png)
-
 ## 🌟 Overview
 
 Welcome to the **Random Quote Generator** app! This project was created for the **CCS3351 - Mobile Application Development** final project. Our app allows you to discover and enjoy a wide variety of **motivational**, **historical**, and **inspirational** quotes. With a simple yet effective design, this app enables you to generate random quotes, view them in detail, and explore more about the authors.
