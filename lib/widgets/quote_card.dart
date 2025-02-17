@@ -5,7 +5,7 @@ class QuoteCard extends StatelessWidget {
   final Quote quote;
   final VoidCallback onTap;
 
-  QuoteCard({required this.quote, required this.onTap});
+  const QuoteCard({super.key, required this.quote, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +17,7 @@ class QuoteCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
+        color: Colors.deepPurple[50],
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -27,6 +28,7 @@ class QuoteCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 20,
                   fontStyle: FontStyle.italic,
+                  color: Colors.deepPurple,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -36,6 +38,7 @@ class QuoteCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
+                  color: Colors.deepPurple,
                 ),
                 textAlign: TextAlign.right,
               ),
