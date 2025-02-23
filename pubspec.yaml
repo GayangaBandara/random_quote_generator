@@ -24,4 +24,21 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/author_image.jpeg  # Ensure this image exists in assets/images/
+  - assets/images/author_image1.jpg
+  - assets/images/author_image2.jpg
+  - assets/images/author_image3.jpg
+  - assets/images/author_image4.jpg
+  - assets/images/author_image5.jpg
+  - assets/images/author_image6.jpg
+  - assets/images/author_image7.jpg
+  - assets/images/author_image8.jpg
+  - assets/images/author_image9.jpg
+  - assets/images/author_image10.jpg
+  - assets/images/author_image11.jpg
+  - assets/images/author_image12.jpg  
+  - assets/images/author_image13.jpg  
+  - assets/images/author_image14.jpg 
+  - assets/images/author_image15.jpg 
+  - assets/images/author_image16.jpg 
+  - assets/images/author_image17.jpg 
+    
