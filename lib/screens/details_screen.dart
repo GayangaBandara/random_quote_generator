@@ -11,7 +11,7 @@ class DetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Quote Details"),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: const Color.fromARGB(255, 181, 146, 243),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -19,13 +19,19 @@ class DetailsScreen extends StatelessWidget {
           children: <Widget>[
             Text(
               '"${quote.text}"',
-              style: TextStyle(fontSize: 24, fontStyle: FontStyle.italic, color: Colors.deepPurple),
+              style: TextStyle(
+                  fontSize: 24,
+                  fontStyle: FontStyle.italic,
+                  color: Colors.deepPurple),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 20),
             Text(
               "- ${quote.author}",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.deepPurple),
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.deepPurple),
             ),
             SizedBox(height: 40),
             Text(

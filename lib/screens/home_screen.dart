@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../models/quote.dart';
 import '../utils/quote_service.dart';
 import 'details_screen.dart';
-import 'add_quote_screen.dart';
 import '../widgets/quote_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,28 +14,29 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final QuoteService _quoteService = QuoteService();
   late Quote _currentQuote;
+  late String _selectedCategory;
+  late List<String> _categories;
 
   @override
   void initState() {
     super.initState();
-    _currentQuote = _quoteService.getRandomQuote();
+    _categories = _quoteService.getCategories();
+    _selectedCategory = _categories.first; // Default category
+    _currentQuote = _quoteService.getRandomQuoteByCategory(_selectedCategory);
   }
 
   void _fetchNewQuote() {
     setState(() {
-      _currentQuote = _quoteService.getRandomQuote();
+      _currentQuote = _quoteService.getRandomQuoteByCategory(_selectedCategory);
     });
   }
 
-  void navigateToAddQuoteScreen() async {
-    final newQuote = await Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => AddQuoteScreen()),
-    );
-    if (newQuote != null) {
+  void _onCategoryChanged(String? newCategory) {
+    if (newCategory != null) {
       setState(() {
-        _quoteService.addQuote(newQuote);
-        _currentQuote = newQuote;
+        _selectedCategory = newCategory;
+        _currentQuote =
+            _quoteService.getRandomQuoteByCategory(_selectedCategory);
       });
     }
   }
@@ -52,6 +52,19 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            // Category Dropdown
+            DropdownButton<String>(
+              value: _selectedCategory,
+              onChanged: _onCategoryChanged,
+              items: _categories.map((String category) {
+                return DropdownMenuItem<String>(
+                  value: category,
+                  child: Text(category),
+                );
+              }).toList(),
+            ),
+            SizedBox(height: 20),
+            // Quote Card
             QuoteCard(
               quote: _currentQuote,
               onTap: () {
@@ -64,13 +77,18 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             SizedBox(height: 40),
+            // Fetch New Quote Button
             ElevatedButton(
               onPressed: _fetchNewQuote,
               child: Text("Get New Quote"),
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.deepPurple,
+              ),
             ),
           ],
         ),
       ),
     );
- }
+  }
 }

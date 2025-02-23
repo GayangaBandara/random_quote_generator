@@ -13,7 +13,7 @@ class QuoteCard extends StatelessWidget {
       onTap: onTap,
       child: Card(
         elevation: 5,
-        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
@@ -25,17 +25,17 @@ class QuoteCard extends StatelessWidget {
             children: <Widget>[
               Text(
                 '"${quote.text}"',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 20,
                   fontStyle: FontStyle.italic,
                   color: Colors.deepPurple,
                 ),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 "- ${quote.author}",
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: Colors.deepPurple,

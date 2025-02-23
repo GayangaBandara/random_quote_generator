@@ -1,7 +1,7 @@
 name: random_quote_generator
 description: "A new Flutter project."
 
-publish_to: 'none' 
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.8
   provider: ^6.0.2
+  http: ^0.13.3  # Ensure this is included for API requests
 
 dev_dependencies:
   flutter_test:
@@ -23,5 +24,4 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/author_image.jpeg
-    
+    - assets/images/author_image.jpeg  # Ensure this image exists in assets/images/
