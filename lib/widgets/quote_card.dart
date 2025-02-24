@@ -5,7 +5,7 @@ class QuoteCard extends StatelessWidget {
   final Quote quote;
   final VoidCallback onTap;
 
-  const QuoteCard({super.key, required this.quote, required this.onTap});
+  const QuoteCard({super.key, required this.quote, required this.onTap, required bool authorCentered});
 
   @override
   Widget build(BuildContext context) {
