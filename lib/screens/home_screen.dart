@@ -118,7 +118,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   opacity: _fadeAnimation,
                   child: QuoteCard(
                     quote: _currentQuote,
-                    authorCentered: true,
                     onTap: () {
                       Navigator.push(
                         context,
@@ -141,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                     textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                     elevation: 8,
                   ),
-                  child: const Text("Inspire Me"),
+                  child: const Text("Generate"),
                 ),
               ],
             ),

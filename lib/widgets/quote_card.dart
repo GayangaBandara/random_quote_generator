@@ -5,42 +5,54 @@ class QuoteCard extends StatelessWidget {
   final Quote quote;
   final VoidCallback onTap;
 
-  const QuoteCard({super.key, required this.quote, required this.onTap, required bool authorCentered});
+  const QuoteCard({super.key, required this.quote, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Card(
-        elevation: 5,
-        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        elevation: 8,
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(20),
         ),
-        color: Colors.deepPurple[50],
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            gradient: const LinearGradient(
+              colors: [Color.fromARGB(255, 160, 144, 189), Color(0xFFB39DDB)], // Soft purple shades
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          padding: const EdgeInsets.all(18.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
+              const Icon(Icons.format_quote, size: 36, color: Colors.white70),
+              const SizedBox(height: 10),
               Text(
                 '"${quote.text}"',
                 style: const TextStyle(
                   fontSize: 20,
                   fontStyle: FontStyle.italic,
-                  color: Colors.deepPurple,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white,
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 16),
+              Divider(color: Colors.white70, thickness: 1, indent: 40, endIndent: 40),
+              const SizedBox(height: 8),
               Text(
                 "- ${quote.author}",
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.deepPurple,
+                  color: Colors.white,
                 ),
-                textAlign: TextAlign.right,
+                textAlign: TextAlign.center, // Centering the author name
               ),
             ],
           ),
