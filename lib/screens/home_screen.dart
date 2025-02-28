@@ -61,8 +61,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/background.jpg'), 
-            fit: BoxFit.cover, 
+            image: AssetImage('assets/images/background.jpg'),
+            fit: BoxFit.cover,
           ),
         ),
         child: Column(
@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               width: double.infinity,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: AppColors.gradientPrimary, 
+                  colors: AppColors.gradientPrimary,
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
@@ -81,9 +81,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 child: Text(
                   "Inspirational Quotes",
                   style: TextStyle(
+                    fontFamily: 'Lora', // Use the custom font here
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.textPrimary, 
+                    color: AppColors.textPrimary,
                   ),
                 ),
               ),
@@ -98,6 +99,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       const Text(
                         "Select Category",
                         style: TextStyle(
+                          fontFamily: 'Lora', // Use the custom font here
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           color: AppColors.textPrimary,
@@ -121,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                           value: _selectedCategory,
                           onChanged: _onCategoryChanged,
                           underline: Container(),
-                          icon: const Icon(Icons.arrow_drop_down, color: AppColors.secondary), 
+                          icon: const Icon(Icons.arrow_drop_down, color: AppColors.secondary),
                           style: const TextStyle(color: Colors.black87, fontSize: 18),
                           items: _categories.map((String category) {
                             return DropdownMenuItem<String>(
@@ -150,8 +152,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       ElevatedButton(
                         onPressed: _fetchNewQuote,
                         style: ElevatedButton.styleFrom(
-                          foregroundColor: AppColors.textPrimary, 
-                          backgroundColor: AppColors.secondary, 
+                          foregroundColor: AppColors.textPrimary,
+                          backgroundColor: AppColors.secondary,
                           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 14),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                           textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),

@@ -21,7 +21,7 @@ class QuoteCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             gradient: const LinearGradient(
-              colors: [Color.fromARGB(108, 15, 15, 15), Color.fromARGB(255, 85, 124, 136)],
+              colors: [Color.fromARGB(108, 15, 15, 15), Color.fromARGB(255, 16, 17, 17)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),

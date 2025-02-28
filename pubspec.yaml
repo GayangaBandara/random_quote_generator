@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.8
   provider: ^6.0.2
-  http: ^0.13.3  # Ensure this is included for API requests
+  http: ^0.13.3  
 
 dev_dependencies:
   flutter_test:
@@ -22,6 +22,14 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  
+  fonts:
+    - family: Lora
+      fonts:
+        - asset: assets/fonts/Lora-Regular.ttf
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
 
   assets:
   - assets/images/author_image1.jpg
