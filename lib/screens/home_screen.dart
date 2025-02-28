@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       appBar: AppBar(
         title: const Text(
           "Inspirational Quotes",
-          style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: Colors.black87),
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: Color.fromARGB(255, 0, 0, 0)),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -68,10 +68,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       ),
       body: Container(
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.white, Color(0xFFE0F7FA)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+          image: DecorationImage(
+            image: AssetImage('assets/images/background.jpg'), 
+            fit: BoxFit.cover, 
           ),
         ),
         child: Center(
@@ -82,13 +81,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               children: <Widget>[
                 const Text(
                   "Select Category",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Colors.black87),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Colors.white),
                 ),
                 const SizedBox(height: 10),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.white.withOpacity(0.8), // Semi-transparent white background
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
