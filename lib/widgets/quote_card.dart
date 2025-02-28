@@ -21,7 +21,7 @@ class QuoteCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             gradient: const LinearGradient(
-              colors: [Color.fromARGB(255, 160, 144, 189), Color(0xFFB39DDB)], // Soft purple shades
+              colors: [Color.fromARGB(108, 15, 15, 15), Color.fromARGB(255, 85, 124, 136)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -52,7 +52,7 @@ class QuoteCard extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
-                textAlign: TextAlign.center, // Centering the author name
+                textAlign: TextAlign.center, 
               ),
             ],
           ),

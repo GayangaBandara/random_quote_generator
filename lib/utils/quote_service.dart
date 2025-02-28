@@ -7,7 +7,7 @@ class QuoteService {
         text: "Life is what happens when you're busy making other plans.",
         author: "John Lennon",
         details:
-            "John Lennon was an English singer, songwriter, and co-founder of The Beatles.",
+            "John Lennon fue un influyente músico, compositor y activista británico, conocido principalmente por ser el fundador y co-vocalista de The Beatles, una de las bandas más icónicas del siglo XX. Desde joven, mostró interés por la música y formó la banda The Quarrymen en 1956, la cual evolucionó hasta convertirse en The Beatles en 1960. Junto a Paul McCartney, escribió algunas de las canciones más famosas de la historia, consolidándose como una de las duplas de compositores más exitosas. Tras la separación del grupo en 1970, Lennon continuó su carrera como solista, lanzando álbumes como *Imagine*, cuyas canciones reflejaban su visión pacifista y su deseo de un mundo sin violencia. \n \n ""En su vida personal, Lennon tuvo una estrecha relación con la artista Yoko Ono, con quien se casó en 1969 y adoptó el nombre de John Ono Lennon. Durante la década de 1970, se alejó temporalmente de la música para dedicarse a su familia, regresando en 1980 con el álbum *Double Fantasy*. Sin embargo, su vida se vio trágicamente interrumpida cuando fue asesinado el 8 de diciembre de ese mismo año por Mark David Chapman, un fan obsesionado con él. Su legado sigue vivo a través de su música y su mensaje de paz, influyendo en generaciones de artistas y seguidores en todo el mundo.",
         image: "author_image1.jpg",
         category: "Life"),
     Quote(

@@ -3,6 +3,7 @@ import '../models/quote.dart';
 import '../utils/quote_service.dart';
 import 'details_screen.dart';
 import '../widgets/quote_card.dart';
+import '../widgets/constants.dart'; 
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -57,15 +58,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Inspirational Quotes",
-          style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: Color.fromARGB(255, 0, 0, 0)),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
-      ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -73,77 +65,106 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             fit: BoxFit.cover, 
           ),
         ),
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Text(
-                  "Select Category",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Colors.white),
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: AppColors.gradientPrimary, 
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
                 ),
-                const SizedBox(height: 10),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.8), // Semi-transparent white background
-                    borderRadius: BorderRadius.circular(12),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.2),
-                        blurRadius: 8,
-                        offset: const Offset(0, 4),
+              ),
+              child: const Center(
+                child: Text(
+                  "Inspirational Quotes",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.textPrimary, 
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      const Text(
+                        "Select Category",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.textPrimary,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.8),
+                          borderRadius: BorderRadius.circular(12),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              blurRadius: 8,
+                              offset: const Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        child: DropdownButton<String>(
+                          value: _selectedCategory,
+                          onChanged: _onCategoryChanged,
+                          underline: Container(),
+                          icon: const Icon(Icons.arrow_drop_down, color: AppColors.secondary), 
+                          style: const TextStyle(color: Colors.black87, fontSize: 18),
+                          items: _categories.map((String category) {
+                            return DropdownMenuItem<String>(
+                              value: category,
+                              child: Text(category),
+                            );
+                          }).toList(),
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      FadeTransition(
+                        opacity: _fadeAnimation,
+                        child: QuoteCard(
+                          quote: _currentQuote,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DetailsScreen(quote: _currentQuote),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 40),
+                      ElevatedButton(
+                        onPressed: _fetchNewQuote,
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: AppColors.textPrimary, 
+                          backgroundColor: AppColors.secondary, 
+                          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 14),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                          textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                          elevation: 8,
+                        ),
+                        child: const Text("Generate"),
                       ),
                     ],
                   ),
-                  child: DropdownButton<String>(
-                    value: _selectedCategory,
-                    onChanged: _onCategoryChanged,
-                    underline: Container(),
-                    icon: const Icon(Icons.arrow_drop_down, color: Colors.teal),
-                    style: const TextStyle(color: Colors.black87, fontSize: 18),
-                    items: _categories.map((String category) {
-                      return DropdownMenuItem<String>(
-                        value: category,
-                        child: Text(category),
-                      );
-                    }).toList(),
-                  ),
                 ),
-                const SizedBox(height: 30),
-                // Quote Card with Fade-in Animation
-                FadeTransition(
-                  opacity: _fadeAnimation,
-                  child: QuoteCard(
-                    quote: _currentQuote,
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DetailsScreen(quote: _currentQuote),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                const SizedBox(height: 40),
-                // "Get New Quote" Button
-                ElevatedButton(
-                  onPressed: _fetchNewQuote,
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.teal,
-                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 14),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                    textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                    elevation: 8,
-                  ),
-                  child: const Text("Generate"),
-                ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
